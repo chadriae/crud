@@ -1,0 +1,35 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww15240\viewh13240\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 MySQL exercise\
+\
+3. \
+-\
+- SELECT email, name as learner_name FROM learners where id IN(1);\
+\
+4.\
+- UPDATE groups set `start_date` = DATE_ADD(`start_date`, INTERVAL 2 MONTH) WHERE id IN(2);\
+-ALTER TABLE groups ADD status varchar(255) after max_participants;\
+
+\f1\i NO INSERT = ONLY FOR ADDING NEW ROWS\
+Example insert: INSERT INTO `learners`(`id`, `name`, `email`, `active`) VALUES (5, 'Michael Franks', 'monkeyseemonkeydo@yachtrock.com', 1);\
+
+\f0\i0 UPDATE `groups` SET `status` = "Because... YeAH... Corona? You know."\
+5.\
+DELETE FROM `learners` WHERE id=5;\
+\
+6.\
+!! Interview question: left join vs right join\
+ALTER TABLE learners ADD groupid int(2);\
+
+\f1\i example\
+\
+\
+\
+\
+\
+}
