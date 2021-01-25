@@ -11,12 +11,18 @@
 <body>
 
 	<h1>MyVinyl - track your vinyl collection</h1>
+	<form method="POST">
+		<input type="text" name="title" placeholder="Title of the album"></input>
+		<!-- <input type="text" name="artist" placeholder="Artist of the album"></input>
+		<input type="number" name="release-year" placeholder="Release year"></input> -->
+		<input type="submit" value="Submit">
+	</form>
 
 	<ul>
 		<?php foreach ($vinyls as $vinyl) : ?>
-			<li><?= $vinyl['title'] ?> - <?= $vinyl['artist'] ?><br>
-				Release-date: <?= $vinyl['release-year'] ?><br>
-				<img src=<?= $vinyl['src'] ?> width=150px height=150px />
+			<li><?= $vinyl['title'] ?> <br>
+				<!-- Release-date: <?= $vinyl['release-year'] ?><br> -->
+				<!-- <img src=<?= $vinyl['src'] ?> width=150px height=150px /> -->
 			</li>
 		<?php endforeach; ?>
 	</ul>

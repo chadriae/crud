@@ -27,15 +27,17 @@ class VinylRepository
     {
         // TODO: replace dummy data by real one
         return [
-            ['title' => 'Revolver', 'artist' => 'The Beatles', 'src' => './assets/revolver.jpg', 'release-year' => '1967'],
-            ['title' => 'Aja', 'artist' => 'Steely Dan', 'src' => './assets/aja.jpg', 'release-year' => '1977'],
-            ['title' => "Who's Next", 'artist' => 'The Who', 'src' => './assets/whos-next.jpg', 'release-year' => '1971'],
-            ['title' => 'Bad', 'artist' => 'Michael Jackson', 'src' => './assets/bad.jpg', 'release-year' => '1987'],
-            ['title' => 'Ok Computer', 'artist' => 'Radiohead', 'src' => './assets/ok-computer.jpg', 'release-year' => '1997']
+            ['title' => 'Revolver'],
+            ['title' => 'Aja'],
+            ['title' => "Who's Next"],
+            ['title' => 'Bad'],
+            ['title' => 'Ok Computer']
         ];
 
         // We get the database connection first, so we can apply our queries with it
-        // return $this->databaseManager->database-> (runYourQueryHere)
+        // return $this->databaseManager->database-> (runYourQueryHere);
+        $test = "SELECT title FROM vinyl";
+        var_dump($test);
     }
 
     public function update()
