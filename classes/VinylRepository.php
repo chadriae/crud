@@ -25,19 +25,13 @@ class VinylRepository
     // Get all
     public function get()
     {
-        // TODO: replace dummy data by real one
-        return [
-            ['title' => 'Revolver'],
-            ['title' => 'Aja'],
-            ['title' => "Who's Next"],
-            ['title' => 'Bad'],
-            ['title' => 'Ok Computer']
-        ];
 
-        // We get the database connection first, so we can apply our queries with it
-        // return $this->databaseManager->database-> (runYourQueryHere);
-        $test = "SELECT title FROM vinyl";
-        var_dump($test);
+        $result = $this->databaseManager->dbconnection->query("SELECT title FROM vinyl");
+
+        if (!$result) {
+            var_dump($this->databaseManager->dbconnection->error);
+        }
+        return $result;
     }
 
     public function update()
