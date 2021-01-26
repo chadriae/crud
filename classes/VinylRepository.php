@@ -6,6 +6,7 @@
 class VinylRepository
 {
     private $databaseManager;
+    public $newAddition;
 
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
@@ -15,6 +16,17 @@ class VinylRepository
 
     public function create()
     {
+        if (!empty($_POST['add-title'])) {
+            $this->newAddition = $_POST['add-title'];
+
+            $addNewAddition = $this->databaseManager->dbconnection->query("INSERT INTO vinyl (title) VALUES ('$this->newAddition')");
+
+            if (!$addNewAddition) {
+                var_dump($this->databaseManager->dbconnection->error);
+            }
+            return $addNewAddition;
+        }
+        $this->get();
     }
 
     // Get one
@@ -26,12 +38,14 @@ class VinylRepository
     public function get()
     {
 
-        $result = $this->databaseManager->dbconnection->query("SELECT title FROM vinyl");
+        $title = $this->databaseManager->dbconnection->query("SELECT title FROM vinyl");
+        // $artist = $this->databaseManager->dbconnection->query("SELECT artist FROM vinyl");
 
-        if (!$result) {
+        if (!$title) {
             var_dump($this->databaseManager->dbconnection->error);
         }
-        return $result;
+        // return $title;
+        return $title;
     }
 
     public function update()
