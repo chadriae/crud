@@ -17,9 +17,11 @@ class VinylRepository
     public function create()
     {
         if (!empty($_POST['add-title'])) {
-            $this->newAddition = $_POST['add-title'];
+            $this->newAdditionTitle = $_POST['add-title'];
+            $this->newAdditionArtist = $_POST['add-artist'];
+            $this->newAdditionYear = $_POST['release-year'];
 
-            $addNewAddition = $this->databaseManager->dbconnection->query("INSERT INTO vinyl (title) VALUES ('$this->newAddition')");
+            $addNewAddition = $this->databaseManager->dbconnection->query("INSERT INTO vinyl (title, artist, releaseyear) VALUES ('$this->newAdditionTitle', '$this->newAdditionArtist', '$this->newAdditionYear')");
 
             if (!$addNewAddition) {
                 var_dump($this->databaseManager->dbconnection->error);
