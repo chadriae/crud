@@ -66,7 +66,9 @@ class VinylRepository
         header('Location: index.php');
     }
 
-    public function delete()
+    public function deleteTitle($id)
     {
+        $this->databaseManager->dbconnection->query("DELETE from vinyl WHERE id = $id");
+        header('Location: index.php');
     }
 }
