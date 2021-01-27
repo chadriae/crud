@@ -29,6 +29,18 @@ class VinylRepository
         $this->get();
     }
 
+    public function displayTitle($id)
+    {
+        $query = "SELECT * FROM vinyl WHERE id = '$id'";
+        $result = $this->databaseManager->dbconnection->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+        } else {
+            echo "Record not found";
+        }
+    }
+
     // Get one
     public function find()
     {
@@ -38,7 +50,7 @@ class VinylRepository
     public function get()
     {
 
-        $title = $this->databaseManager->dbconnection->query("SELECT title FROM vinyl");
+        $title = $this->databaseManager->dbconnection->query("SELECT * FROM vinyl");
         // $artist = $this->databaseManager->dbconnection->query("SELECT artist FROM vinyl");
 
         if (!$title) {
@@ -48,8 +60,10 @@ class VinylRepository
         return $title;
     }
 
-    public function update()
+    public function updateTitle($id, string $newTitle)
     {
+        $this->databaseManager->dbconnection->query("UPDATE vinyl SET title = '$newTitle' WHERE id = $id");
+        header('Location: index.php');
     }
 
     public function delete()

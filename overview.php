@@ -21,7 +21,7 @@
 	<ul>
 		<?php foreach ($vinyls as $vinyl) : ?>
 			<li>
-				<?= $vinyl['title'] ?>
+				<?= $vinyl['title'] ?> <a href="edit.php?editId=<?= $vinyl['id'] ?>">edit</a>
 				<!-- - <?= $vinyl['artist'] ?><br> -->
 				<!-- Release-date: <?= $vinyl['release-year'] ?><br> -->
 				<!-- <img src=<?= $vinyl['src'] ?> width=150px height=150px /> -->
