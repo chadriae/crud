@@ -13,7 +13,7 @@ require_once 'config.php';
 require_once 'classes/DatabaseManager.php';
 require_once 'classes/VinylRepository.php';
 
-$databaseManager = new DatabaseManager($config['host'], $config['name'], $config['password'], $config['database'], $config['port']);
+$databaseManager = new DatabaseManager($config['host'], $config['name'], $config['password'], $config['dbname'], $config['port']);
 $databaseManager->connect();
 
 // This example is about a Pokémon card collection
