@@ -31,17 +31,17 @@ class VinylRepository
         $this->get();
     }
 
-    public function displayTitle($id)
-    {
-        $query = "SELECT * FROM vinyl WHERE id = '$id'";
-        $result = $this->databaseManager->dbconnection->query($query);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            return $row;
-        } else {
-            echo "Record not found";
-        }
-    }
+    // public function displayTitle($id)
+    // {
+    //     $query = "SELECT * FROM vinyl WHERE id = '$id'";
+    //     $result = $this->databaseManager->dbconnection->query($query);
+    //     if ($result->num_rows > 0) {
+    //         $row = $result->fetch_assoc();
+    //         return $row;
+    //     } else {
+    //         echo "Record not found";
+    //     }
+    // }
 
     // Get one
     public function find()
