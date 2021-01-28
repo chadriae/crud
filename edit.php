@@ -15,8 +15,6 @@ if (isset($_GET['editId']) && !empty($_GET['editId'])) {
 
     // $title = $vinylRepository->displayTitle($editId);
 
-    // var_dump($title);
-
     if (isset($_POST['new-title'])) {
         $newTitle = $_POST['new-title'];
         $vinylRepository->updateTitle($editId, $newTitle);

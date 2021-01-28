@@ -25,15 +25,15 @@ class DatabaseManager
 
     public function connect()
     {
-
         try {
             $dsn = "mysql:dbname=$this->dbname;host=$this->host;port:$this->port;";
             $this->dbconnection = new PDO($dsn, $this->name, $this->password);
             $this->dbconnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $exception) { //to get error if connection failed
+        } catch (PDOException $exception) {
             echo "Connection Error - " . $exception->getMessage();
         }
 
+        // mysqli connection
         //     $this->dbconnection = mysqli_connect($this->host, $this->name, $this->password, $this->dbname, $this->port);
 
         //     if ($this->dbconnection->connect_errno) {

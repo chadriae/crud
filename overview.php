@@ -13,24 +13,30 @@
 <body>
 
 	<h1 class="font-sans text-3xl text-center p-4 text-red-500 font-medium">MyVinyl - track your vinyl collection</h1>
-	<form method="POST" class="p-4">
+	<form method="POST" class="p-4 text-center">
 		<input class="border border-black rounded p-1" type="text" name="add-title" placeholder="Title of the album" required></input>
 		<input class="border border-black rounded p-1" type="text" name="add-artist" placeholder="Artist of the album" required></input>
 		<input class="border border-black rounded p-1" type="number" name="release-year" placeholder="Release year" required></input>
 		<input class="border border-gray rounded p-1 cursor-pointer" type="submit" value="Submit">
 	</form>
+	<table>
+		<td id="left" class="">
+			<ul class="p-8">
+				<?php foreach ($vinyls as $vinyl) : ?>
+					<li class="border border-gray rounded p-2 mb-2">
+						<?= $vinyl['title'] ?> - <?= $vinyl['artist'] ?><br>
+						<p class="text-gray-400">Release-date: <?= $vinyl['releaseyear'] ?><br></p>
+						<a class="text-blue-600 text-xs" href="edit.php?editId=<?= $vinyl['id'] ?>">edit</a> <a class="text-blue-600 text-xs" href="delete.php?editId=<?= $vinyl['id'] ?>">delete</a>
+						<!-- <img src=<?= $vinyl['src'] ?> width=150px height=150px /> -->
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</td>
+		<td id="right">
+			<img class="p-6" id="collection" src="assets/vinyl-collection.jpeg" />
+			<img class="p-6" id="collection" src="assets/albums.jpg" />
 
-	<ul class="p-8">
-		<?php foreach ($vinyls as $vinyl) : ?>
-			<li class="border border-gray rounded p-2 mb-2">
-				<?= $vinyl['title'] ?> - <?= $vinyl['artist'] ?><br>
-				<p class="text-gray-400">Release-date: <?= $vinyl['releaseyear'] ?><br></p>
-				<a class="text-blue-600 text-xs" href="edit.php?editId=<?= $vinyl['id'] ?>">edit</a> <a class="text-blue-600 text-xs" href="delete.php?editId=<?= $vinyl['id'] ?>">delete</a>
-				<!-- <img src=<?= $vinyl['src'] ?> width=150px height=150px /> -->
-			</li>
-		<?php endforeach; ?>
-	</ul>
-
+	</table>
 </body>
 
 </html>

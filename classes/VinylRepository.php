@@ -51,7 +51,6 @@ class VinylRepository
     // Get all
     public function get()
     {
-
         $title = $this->databaseManager->dbconnection->query("SELECT * FROM vinyl");
         // $artist = $this->databaseManager->dbconnection->query("SELECT artist FROM vinyl");
 
